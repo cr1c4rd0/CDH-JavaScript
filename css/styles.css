@@ -1,0 +1,10 @@
+.card-library {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.space-right {
+    margin-right: 2%;
+}

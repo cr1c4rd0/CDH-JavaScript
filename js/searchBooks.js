@@ -1,7 +1,7 @@
-// Buscador y lector de libros (en el futuro) a travez de un navegador Web.
+// Creador yu Buscador de libros a travez de un navegador Web.
 
-// Lista de libros disponible
-const books = [
+// Lista de libros iniciales disponible
+let books = [
     {
         title: "world of warcraft: el ascenso de la horda",
         author: "christie golden"
@@ -15,6 +15,21 @@ const books = [
         author: "J.R.R. Tolkien"
     }
 ];
+
+function newBook () {
+    // Solicito información para agragar nuevo libro
+    let newTitle = prompt("Ingrese el nombre del libro: ");
+    let newAuthor = prompt("Ingrese el nombre del autor: ");
+
+    // Creo el objeto del libro para agregar
+    let addBook = {
+        title: newTitle,
+        author: newAuthor
+    };
+
+    // Adiciono el libro usando el metodo push para ponerlo al final de la cola del array books
+    books.push(addBook);
+}
 
 // Función para solicitar el nombre del libro y la busqueda
 function searchBooks () {

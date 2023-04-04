@@ -5,10 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Books</title>
+    <link rel="stylesheet" href="css/boostrap/bootstrap.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <h1>Buscador de libros</h1>
-    <button onclick="searchBooks()">Buscar libros</button>
+    <div class="container">
+        <div class="card card-library">
+            <div class="card-body">
+                <h5 class="card-title">Librería</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">Colección de libros</h6>
+                <p class="card-text">Agrega o busca información acerca de libros</p>
+                <button class="btn btn-primary space-right" onclick="searchBooks()">Buscar libros</button>
+                <button class="btn btn-primary" onclick="newBook()">Agregar libro</button>
+            </div>
+          </div>
+    </div>
     <script src="./js/searchBooks.js"></script>
+    <script src="./js/boostrap/bootstrap.min.js""></script>
 </body>
 </html>
