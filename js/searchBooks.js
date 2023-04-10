@@ -1,4 +1,4 @@
-// Creador yu Buscador de libros a travez de un navegador Web.
+// Creador y Buscador de libros a travez de un navegador Web.
 
 // Lista de libros iniciales disponible
 let books = [
@@ -21,43 +21,32 @@ function newBook () {
     let newTitle = prompt("Ingrese el nombre del libro: ");
     let newAuthor = prompt("Ingrese el nombre del autor: ");
 
-    // Creo el objeto del libro para agregar
-    let addBook = {
-        title: newTitle,
-        author: newAuthor
-    };
+    // Creo la clase Book para agregar
+    class Book {
+        constructor(newTitle, newAuthor) {
+            this.title = newTitle;
+            this.author = newAuthor;
+        }
+    }
 
-    // Adiciono el libro usando el metodo push para ponerlo al final de la cola del array books
-    books.push(addBook);
+    // Adiciono el libro y luego push al final de la cola del array books
+    let newBook = new Book(newTitle,newAuthor)
+    books.push(newBook);
 }
 
 // Función para solicitar el nombre del libro y la busqueda
 function searchBooks () {
-    let searchTittle = prompt("Ingrese el titulo del ligro que busca: ");
-    let results = [];
+    var searchBook = prompt("Nombre del libro a buscar: ").toLowerCase();
 
-    //recorrido del vector books
-    for (let i = 0; i < books.length; i++) {
-        let book = books[i];
+    // Buscar en el arreglo books
+    var searchedBook = books.find(function(book){
+        return book.title.toLowerCase() === searchBook;
+    });
 
-        // unificar la escritura en caso de que utilicen mayusculas y minisculas
-        if (
-            book.title.toLowerCase().includes(searchTittle.toLowerCase()) ||
-            book.author.toLowerCase().includes(searchTittle.toLowerCase())
-        ) {
-            results.push(book);
-        }
-    }
-
-    // Mostrar resultados del libro
-    if (results.length > 0) {
-        let message = "Libros encontrados:\n\n";
-        for (let i = 0; i < results.length; i++) {
-            message += results[i].title + " - " + results[i].author + "\n";
-        }
-        alert(message);
+    // Verificando si se encuentra el libro
+    if (searchedBook) {
+        alert ("Libro encontrado: " + searchedBook.title + "\nAutor: " + searchedBook.author);
     } else {
         alert("Este libro no se encuentra disponible.");
     }
-};
-
+}
