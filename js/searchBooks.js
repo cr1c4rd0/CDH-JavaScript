@@ -1,35 +1,30 @@
 // Lista de libros iniciales disponible
 let books = [
     {
-        id: 1,
         title: "World of Warcraft: Jaina valiente, Mareas de guerra",
         author: "christie golden",
         publisher: "Panini España. S.A",
         price: 38.36
     },
     {
-        id: 2,
         title: "Los hombres que no amaban a las mujeres",
         author: "stieg larsson",
         publisher: "Ediciones Destino",
         price: 26.25
     },
     {
-        id: 3,
         title: "el señor de los anillos: La comunidad del anillo",
         author: "J.R.R. Tolkien",
         publisher: "Planeta Publishing",
         price: 17.95
     },
     {
-        id: 4,
         title: "Don Quijote de la Mancha",
         author: "miguel de cervantes",
         publisher: "Lengua viva",
         price: 12.54
     },
     {
-        id: 5,
         title: "Entrevista con el vampiro",
         author: "Anne Rice",
         publisher: "Penguin Random House Audio",
@@ -37,20 +32,21 @@ let books = [
     }
 ];
 
-// Obtener elementos del DOM
+// Obtener elemento del DOM
 let listBooks = document.getElementById("listBooks");
 
 // Pintar card de libros
 books.forEach(books => {
-    listBooks.innerHTML += "<div class='nes-container is-rounded grupo' id='bookProperties'>"+
-            "<button type='button' class='nes-btn is-warning boton-cart'>Agregar a carrito</button>"+
-            "<div class='nes-btn book'>"+books.title+"</div>"+
-            "<div class='nes-btn book'>"+"Author: "+books.author+"</div>"+
-            "<div class='nes-btn book'>"+"Publisher: "+books.publisher+"</div>"+
-            "<div class='nes-btn is-success nombre-libro'>"+"Precio: $"+books.price+"</div>"+
-        "</div>"
+    listBooks.innerHTML += `<div class='nes-container is-rounded grupo' id='bookProperties'>
+            <button type='button' class='nes-btn is-warning boton-cart'>Agregar a carrito</button>
+            <div class='nes-btn book'>${books.title}</div>
+            <div class='nes-btn book'>Author: ${books.author}</div>
+            <div class='nes-btn book'>Publisher: ${books.publisher}</div>
+            <div class='nes-btn is-success nombre-libro'>Precio: $${books.price}</div>
+        </div>`
 });
 
+// función para agregar nuevos libros
 function newBook () {
     // Solicito información para agragar nuevo libro
     let newTitle = prompt("Ingrese el nombre del libro: ");
@@ -62,14 +58,14 @@ function newBook () {
             this.title = newTitle;
             this.author = newAuthor;
         }
-    }
+    };
 
     // Adiciono el libro y luego push al final de la cola del array books
-    let newBook = new Book(newTitle,newAuthor)
+    let newBook = new Book(newTitle,newAuthor);
     books.push(newBook);
-}
+};
 
-// Función para solicitar el nombre del libro y la busqueda
+// Función realizar busqueda de un libro
 function searchBooks () {
     let searchBook = prompt("Nombre del libro a buscar: ").toLowerCase();
 
@@ -84,4 +80,4 @@ function searchBooks () {
     } else {
         alert("Este libro no se encuentra disponible.");
     }
-}
+};
