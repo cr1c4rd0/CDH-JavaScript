@@ -16,6 +16,10 @@ let books = [
     }
 ];
 
+// Obtener elementos del DOM
+const booksEnable = document.getElementById('booksEnable');
+const cart = document.getElementById('cart');
+
 function newBook () {
     // Solicito información para agragar nuevo libro
     let newTitle = prompt("Ingrese el nombre del libro: ");
@@ -36,10 +40,10 @@ function newBook () {
 
 // Función para solicitar el nombre del libro y la busqueda
 function searchBooks () {
-    var searchBook = prompt("Nombre del libro a buscar: ").toLowerCase();
+    let searchBook = prompt("Nombre del libro a buscar: ").toLowerCase();
 
     // Buscar en el arreglo books
-    var searchedBook = books.find(function(book){
+    let searchedBook = books.find(function(book){
         return book.title.toLowerCase() === searchBook;
     });
 

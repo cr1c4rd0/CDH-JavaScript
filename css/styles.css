@@ -1,10 +1,26 @@
-.card-library {
-    margin-top: 5rem;
-    display: flex;
-    justify-content: center;
-    text-align: center;
+body {
+    padding: 2rem;
+    background-color: #9DA1AA;
+    font-family: 'Roboto Mono', monospace;
 }
 
-.space-right {
-    margin-right: 2%;
+.nes-container.with-title >.title {
+    background-color: #9DA1AA !important;
+}
+
+.carrito-button {
+    float: right;
+}
+
+.grupo {
+    margin-bottom: 3rem;
+}
+
+.lista-libros {
+    display: flex;
+}
+
+.libros {
+    width:50%;
+    margin: 2%;
 }
