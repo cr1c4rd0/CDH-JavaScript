@@ -1,26 +1,32 @@
 body {
     padding: 2rem;
-    background-color: #9DA1AA;
+    background-color: #eee;
     font-family: 'Roboto Mono', monospace;
 }
 
-.nes-container.with-title >.title {
-    background-color: #9DA1AA !important;
+.general-menu {
+    width: 50%;
+    position: fixed;
+    z-index: 1;
 }
 
 .carrito-button {
     float: right;
 }
 
-.grupo {
-    margin-bottom: 3rem;
-}
-
 .lista-libros {
-    display: flex;
+    margin-top: 9rem;
 }
 
-.libros {
-    width:50%;
-    margin: 2%;
+
+.grupo {
+    margin-bottom: 3rem !important;
+}
+
+.dialog-default {
+    overflow-y: hidden !important; 
+}
+
+.nombre-libro {
+    pointer-events: none;
 }

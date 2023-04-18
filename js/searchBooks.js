@@ -3,22 +3,30 @@
 // Lista de libros iniciales disponible
 let books = [
     {
+        id: 1,
         title: "world of warcraft: el ascenso de la horda",
-        author: "christie golden"
+        author: "christie golden",
+        price: 10
     },
     {
-       title: "los hombres que no aman a las mujeres",
-       author: "stieg larsson"
+        id: 2,
+        title: "los hombres que no aman a las mujeres",
+        author: "stieg larsson",
+        price: 15
     },
     {
+        id: 3,
         title: "el señor de los anillos",
-        author: "J.R.R. Tolkien"
+        author: "J.R.R. Tolkien",
+        price: 20
     }
 ];
 
 // Obtener elementos del DOM
-const booksEnable = document.getElementById('booksEnable');
-const cart = document.getElementById('cart');
+let listBooks = document.getElementById("listaLibros");
+
+let libros = document.getElementsByClassName("libro");
+console.log(libros);
 
 function newBook () {
     // Solicito información para agragar nuevo libro
