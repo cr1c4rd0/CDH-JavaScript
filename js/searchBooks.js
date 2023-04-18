@@ -1,32 +1,55 @@
-// Creador y Buscador de libros a travez de un navegador Web.
-
 // Lista de libros iniciales disponible
 let books = [
     {
         id: 1,
-        title: "world of warcraft: el ascenso de la horda",
+        title: "World of Warcraft: Jaina valiente, Mareas de guerra",
         author: "christie golden",
-        price: 10
+        publisher: "Panini España. S.A",
+        price: 38.36
     },
     {
         id: 2,
-        title: "los hombres que no aman a las mujeres",
+        title: "Los hombres que no amaban a las mujeres",
         author: "stieg larsson",
-        price: 15
+        publisher: "Ediciones Destino",
+        price: 26.25
     },
     {
         id: 3,
-        title: "el señor de los anillos",
+        title: "el señor de los anillos: La comunidad del anillo",
         author: "J.R.R. Tolkien",
-        price: 20
+        publisher: "Planeta Publishing",
+        price: 17.95
+    },
+    {
+        id: 4,
+        title: "Don Quijote de la Mancha",
+        author: "miguel de cervantes",
+        publisher: "Lengua viva",
+        price: 12.54
+    },
+    {
+        id: 5,
+        title: "Entrevista con el vampiro",
+        author: "Anne Rice",
+        publisher: "Penguin Random House Audio",
+        price: 82.80
     }
 ];
 
 // Obtener elementos del DOM
-let listBooks = document.getElementById("listaLibros");
+let listBooks = document.getElementById("listBooks");
 
-let libros = document.getElementsByClassName("libro");
-console.log(libros);
+// Pintar card de libros
+books.forEach(books => {
+    listBooks.innerHTML += "<div class='nes-container is-rounded grupo' id='bookProperties'>"+
+            "<button type='button' class='nes-btn is-warning boton-cart'>Agregar a carrito</button>"+
+            "<div class='nes-btn book'>"+books.title+"</div>"+
+            "<div class='nes-btn book'>"+"Author: "+books.author+"</div>"+
+            "<div class='nes-btn book'>"+"Publisher: "+books.publisher+"</div>"+
+            "<div class='nes-btn is-success nombre-libro'>"+"Precio: $"+books.price+"</div>"+
+        "</div>"
+});
 
 function newBook () {
     // Solicito información para agragar nuevo libro

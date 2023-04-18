@@ -18,6 +18,14 @@ body {
     margin-top: 9rem;
 }
 
+.book {
+    margin-right: 1%;
+    pointer-events: none;
+}
+
+.boton-cart {
+    margin-right: 1%;
+}
 
 .grupo {
     margin-bottom: 3rem !important;
@@ -27,6 +35,3 @@ body {
     overflow-y: hidden !important; 
 }
 
-.nombre-libro {
-    pointer-events: none;
-}
