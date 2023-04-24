@@ -1,0 +1,37 @@
+body {
+    padding: 2rem;
+    background-color: #eee;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.general-menu {
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+}
+
+.carrito-button {
+    float: right;
+}
+
+.lista-libros {
+    margin-top: 9rem;
+}
+
+.book {
+    margin-right: 1%;
+    pointer-events: none;
+}
+
+.boton-cart {
+    margin-right: 1%;
+}
+
+.grupo {
+    margin-bottom: 3rem !important;
+}
+
+.dialog-default {
+    overflow-y: hidden !important; 
+}
+

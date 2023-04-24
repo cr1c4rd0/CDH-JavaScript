@@ -1,48 +1,83 @@
-// Buscador y lector de libros (en el futuro) a travez de un navegador Web.
-
-// Lista de libros disponible
-const books = [
+// Lista de libros iniciales disponible
+let books = [
     {
-        title: "world of warcraft: el ascenso de la horda",
-        author: "christie golden"
+        title: "World of Warcraft: Jaina valiente, Mareas de guerra",
+        author: "christie golden",
+        publisher: "Panini España. S.A",
+        price: 38.36
     },
     {
-       title: "los hombres que no aman a las mujeres",
-       author: "stieg larsson"
+        title: "Los hombres que no amaban a las mujeres",
+        author: "stieg larsson",
+        publisher: "Ediciones Destino",
+        price: 26.25
     },
     {
-        title: "el señor de los anillos",
-        author: "J.R.R. Tolkien"
+        title: "el señor de los anillos: La comunidad del anillo",
+        author: "J.R.R. Tolkien",
+        publisher: "Planeta Publishing",
+        price: 17.95
+    },
+    {
+        title: "Don Quijote de la Mancha",
+        author: "miguel de cervantes",
+        publisher: "Lengua viva",
+        price: 12.54
+    },
+    {
+        title: "Entrevista con el vampiro",
+        author: "Anne Rice",
+        publisher: "Penguin Random House Audio",
+        price: 80.80
     }
 ];
 
-// Función para solicitar el nombre del libro y la busqueda
+// Obtener elemento del DOM
+let listBooks = document.getElementById("listBooks");
+
+// Pintar card de libros
+books.forEach(books => {
+    listBooks.innerHTML += `<div class='nes-container is-rounded grupo' id='bookProperties'>
+            <button type='button' class='nes-btn is-warning boton-cart'>Agregar a carrito</button>
+            <div class='nes-btn book'>${books.title}</div>
+            <div class='nes-btn book'>Author: ${books.author}</div>
+            <div class='nes-btn book'>Publisher: ${books.publisher}</div>
+            <div class='nes-btn is-success nombre-libro'>Precio: $${books.price}</div>
+        </div>`
+});
+
+// función para agregar nuevos libros
+function newBook () {
+    // Solicito información para agragar nuevo libro
+    let newTitle = prompt("Ingrese el nombre del libro: ");
+    let newAuthor = prompt("Ingrese el nombre del autor: ");
+
+    // Creo la clase Book para agregar
+    class Book {
+        constructor(newTitle, newAuthor) {
+            this.title = newTitle;
+            this.author = newAuthor;
+        }
+    };
+
+    // Adiciono el libro y luego push al final de la cola del array books
+    let newBook = new Book(newTitle,newAuthor);
+    books.push(newBook);
+};
+
+// Función realizar busqueda de un libro
 function searchBooks () {
-    let searchTittle = prompt("Ingrese el titulo del ligro que busca: ");
-    let results = [];
+    let searchBook = prompt("Nombre del libro a buscar: ").toLowerCase();
 
-    //recorrido del vector books
-    for (let i = 0; i < books.length; i++) {
-        let book = books[i];
+    // Buscar en el arreglo books
+    let searchedBook = books.find(function(book){
+        return book.title.toLowerCase() === searchBook;
+    });
 
-        // unificar la escritura en caso de que utilicen mayusculas y minisculas
-        if (
-            book.title.toLowerCase().includes(searchTittle.toLowerCase()) ||
-            book.author.toLowerCase().includes(searchTittle.toLowerCase())
-        ) {
-            results.push(book);
-        }
-    }
-
-    // Mostrar resultados del libro
-    if (results.length > 0) {
-        let message = "Libros encontrados:\n\n";
-        for (let i = 0; i < results.length; i++) {
-            message += results[i].title + " - " + results[i].author + "\n";
-        }
-        alert(message);
+    // Verificando si se encuentra el libro
+    if (searchedBook) {
+        alert ("Libro encontrado: " + searchedBook.title + "\nAutor: " + searchedBook.author);
     } else {
         alert("Este libro no se encuentra disponible.");
     }
 };
-

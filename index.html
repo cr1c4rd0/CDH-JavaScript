@@ -4,11 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Books</title>
+    <title>Library</title>
+    <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Buscador de libros</h1>
-    <button onclick="searchBooks()">Buscar libros</button>
+    <div class="general-menu">
+        <div class="nes-container is-dark with-title grupo menu">
+            <p class="title">Acciones</p>
+            <button type="button" class="nes-btn is-primary" onclick="searchBooks()">Buscar un libro</button>
+            <button type="button" class="nes-btn is-primary" onclick="newBook()">Agregar nuevo libro</button>
+            <button type="button" class="nes-btn is-warning carrito-button" onclick="document.getElementById('dialog-default').showModal();">
+                Carrito (0)
+            </button>
+        </div>
+    </div>
+    <section>
+        <dialog class="nes-dialog" id="dialog-default">
+            <form method="dialog">
+                <p class="title">Dialog</p>
+                <p>Alert: this is a dialog.</p>
+                <menu class="dialog-menu">
+                    <button class="nes-btn">Cancel</button>
+                    <button class="nes-btn is-primary">Confirm</button>
+                </menu>
+            </form>
+        </dialog>
+    </section>
+    <div class="lista-libros" id="listBooks">
+        <h3 class="title ">Libros disponibles</h3>
+        <br>
+    </div>
     <script src="./js/searchBooks.js"></script>
 </body>
 </html>
