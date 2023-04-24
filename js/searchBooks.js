@@ -28,7 +28,7 @@ let books = [
         title: "Entrevista con el vampiro",
         author: "Anne Rice",
         publisher: "Penguin Random House Audio",
-        price: 80.80
+        price: 82.80
     }
 ];
 
