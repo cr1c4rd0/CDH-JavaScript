@@ -51,12 +51,16 @@ function newBook () {
     // Solicito información para agragar nuevo libro
     let newTitle = prompt("Ingrese el nombre del libro: ");
     let newAuthor = prompt("Ingrese el nombre del autor: ");
+    let newPublisher = prompt("Ingrese el nombre de la editorial: ");
+    let newPrice = prompt("Ingrese el costo del libro: ");
 
     // Creo la clase Book para agregar
     class Book {
         constructor(newTitle, newAuthor) {
             this.title = newTitle;
             this.author = newAuthor;
+            this.publisher = newPublisher;
+            this.price = newPrice;
         }
     };
 
