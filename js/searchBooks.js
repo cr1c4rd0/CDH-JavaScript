@@ -1,87 +1,90 @@
 // Lista de libros iniciales disponible
 let books = [
     {
-        title: "World of Warcraft: Jaina valiente, Mareas de guerra",
-        author: "christie golden",
-        publisher: "Panini España. S.A",
-        price: 38.36
-    },
-    {
-        title: "Los hombres que no amaban a las mujeres",
+        id: 1,
+        title: "los hombres que no amaban a las mujeres",
         author: "stieg larsson",
         publisher: "Ediciones Destino",
         price: 26.25
     },
     {
+        id: 2,
         title: "el señor de los anillos: La comunidad del anillo",
         author: "J.R.R. Tolkien",
         publisher: "Planeta Publishing",
         price: 17.95
     },
     {
-        title: "Don Quijote de la Mancha",
+        id: 3,
+        title: "don quijote de la mancha",
         author: "miguel de cervantes",
         publisher: "Lengua viva",
         price: 12.54
     },
     {
-        title: "Entrevista con el vampiro",
+        id: 4,
+        title: "entrevista con el vampiro",
         author: "Anne Rice",
         publisher: "Penguin Random House Audio",
         price: 82.80
     }
 ];
+let elementsCar = [];
+let valueAmount = 0;
 
-// Obtener elemento del DOM
-let listBooks = document.getElementById("listBooks");
+// Obtener elementos del DOM
+let carButton = document.getElementById("carButton");
+let searchField = document.getElementById("name_field");
+let itemsCarShop = document.getElementById("itemsCarShop");
+let amountCar = document.getElementById("amountCar");
 
-// Pintar card de libros
-books.forEach(books => {
-    listBooks.innerHTML += `<div class='nes-container is-rounded grupo' id='bookProperties'>
-            <button type='button' class='nes-btn is-warning boton-cart'>Agregar a carrito</button>
-            <div class='nes-btn book'>${books.title}</div>
-            <div class='nes-btn book'>Author: ${books.author}</div>
-            <div class='nes-btn book'>Publisher: ${books.publisher}</div>
-            <div class='nes-btn is-success nombre-libro'>Precio: $${books.price}</div>
-        </div>`
-});
+// Eventos
+searchField.addEventListener("input", searchResults);
 
-// función para agregar nuevos libros
-function newBook () {
-    // Solicito información para agragar nuevo libro
-    let newTitle = prompt("Ingrese el nombre del libro: ");
-    let newAuthor = prompt("Ingrese el nombre del autor: ");
-    let newPublisher = prompt("Ingrese el nombre de la editorial: ");
-    let newPrice = prompt("Ingrese el costo del libro: ");
+// Render
+renderBooks(books);
 
-    // Creo la clase Book para agregar
-    class Book {
-        constructor(newTitle, newAuthor) {
-            this.title = newTitle;
-            this.author = newAuthor;
-            this.publisher = newPublisher;
-            this.price = newPrice;
-        }
-    };
-
-    // Adiciono el libro y luego push al final de la cola del array books
-    let newBook = new Book(newTitle,newAuthor);
-    books.push(newBook);
+// Función para el render de los libros
+function renderBooks (books) {
+    let listBooks = document.getElementById("listBooks");
+    listBooks.innerHTML = "";
+    // Pintar card de libros
+    books.forEach(books => {
+        let containerBooks = document.createElement("div");
+        containerBooks.className = 'nes-container is-rounded';
+        containerBooks.innerHTML += `<button type='button' class='nes-btn is-warning boton-cart' id=${books.id}>Agregar a carrito</button>
+                <div class='nes-btn book'>${books.title}</div>
+                <div class='nes-btn book'>Author: ${books.author}</div>
+                <div class='nes-btn book'>Publisher: ${books.publisher}</div>
+                <div class='nes-btn is-success'>Precio: $${books.price}</div>
+            </div>`;
+            listBooks.appendChild(containerBooks);
+            let itemCar = document.getElementById(books.id);
+            itemCar.addEventListener("click", shopCar);
+});  
 };
 
-// Función realizar busqueda de un libro
-function searchBooks () {
-    let searchBook = prompt("Nombre del libro a buscar: ").toLowerCase();
+// Funcion para agregar un item al carrito 
+function shopCar (e) {
+    console.log(e.target.id);
+    let itemSearch = books.find(book => book.id === Number(e.target.id));
+    elementsCar.push(itemSearch);
+    valueAmount++;
+    renderCar(elementsCar);
+};
 
-    // Buscar en el arreglo books
-    let searchedBook = books.find(function(book){
-        return book.title.toLowerCase() === searchBook;
+// Función para el render de los items en el carro de compras
+function renderCar (itemsCar) {
+    itemsCarShop.innerHTML = "";
+    itemsCar.forEach(books => {
+        itemsCarShop.innerHTML += `<li>${books.title} <strong>Precio: </strong>$ ${books.price}</li>`;
     });
+    amountCar.innerHTML = "";
+    amountCar.innerHTML += valueAmount;
+};
 
-    // Verificando si se encuentra el libro
-    if (searchedBook) {
-        alert ("Libro encontrado: " + searchedBook.title + "\nAutor: " + searchedBook.author);
-    } else {
-        alert("Este libro no se encuentra disponible.");
-    }
+// Funcion para la busqueda y resultado de libros
+function searchResults(e) {
+    let booksFilter = books.filter(book => book.title.includes((searchField.value).toLowerCase()));
+    renderBooks(booksFilter);
 };
