@@ -2,28 +2,28 @@
 let books = [
   {
     id: 1,
-    title: "El Principito",
+    title: "el Principito",
     author: "Antoine de Saint",
     publisher: "Salamandra",
     price: 26.25,
   },
   {
     id: 2,
-    title: "El señor de los anillos",
+    title: "el señor de los anillos",
     author: "Tolkien",
     publisher: "Planeta",
     price: 17.95,
   },
   {
     id: 3,
-    title: "Don quijote de la mancha",
+    title: "don quijote de la mancha",
     author: "M. Cervantes",
     publisher: "Lengua viva",
     price: 12.54,
   },
   {
     id: 4,
-    title: "Entrevista con el vampiro",
+    title: "entrevista con el vampiro",
     author: "Anne Rice",
     publisher: "Penguin Random",
     price: 82.8,
@@ -54,7 +54,7 @@ function renderBooks (books) {
     books.forEach(books => {
         let containerBooks = document.createElement("div");
         containerBooks.className = 'nes-container is-rounded';
-        containerBooks.innerHTML += `<button type='button' class='nes-btn is-warning boton-cart' id=${books.id}>Agregar a carrito</button>
+        containerBooks.innerHTML += `<button type='button' class='nes-btn is-warning boton-cart' id=${books.id}>Agregar</button>
                 <div class='nes-btn book'>${books.title}</div>
                 <div class='nes-btn book'>${books.author}</div>
                 <div class='nes-btn book'>Publisher: ${books.publisher}</div>
