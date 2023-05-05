@@ -20,3 +20,16 @@ body {
 #carButton {
     margin-bottom: 2rem;
 }
+
+.container {
+    display: flex;
+}
+
+.bookSection {
+    width: 65%;
+    margin-right: 2rem;
+}
+
+.carSection {
+    width: 35%;
+}

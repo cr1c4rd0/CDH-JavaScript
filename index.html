@@ -21,32 +21,41 @@
     </div>
     <br>
     
-    <h3 class="title ">Ebooks Disponibles:</h3>
-    <br>
-    <div class="lista-libros" id="listBooks"></div>
-    <br>
-    <h3 class="title">Carrito de compras</h3>
-    <section>
-        <button type="button" class="nes-btn is-primary" onclick="document.getElementById('dialog-default').showModal();">
-            Comprar
-        </button>
-        <dialog class="nes-dialog" id="dialog-default">
-            <form method="dialog">
-                <p>Muchas gracias por su compra</p>
-                <menu class="dialog-menu">
-                    <button class="nes-btn">Cancelar</button>
-                    <button class="nes-btn is-primary" id="finishProcess">Confirmar</button>
-                </menu>
-            </form>
-        </dialog>
-    </section>
-    <br><br>
-    <section>
-        <div class="lists">
-            <ul class="nes-list is-circle" id="itemsCarShop"></ul>
+    <div class="container">
+        <div class="bookSection">
+            <h3 class="title ">Ebooks Disponibles:</h3>
+            <br>
+            <div class="lista-libros" id="listBooks"></div>
+            <br>
         </div>
-    </section>
+        <div class="carSection">
+            <section>
+                <div class="nes-container is-dark with-title">
+                    <p class="title">Carrito de compras</p>
+                    <p>Agregue Ebooks desde el boton agregar al carrito</p>
+                    <div class="lists">
+                        <ul class="nes-list is-circle" id="itemsCarShop"></ul>
+                    </div>
+                </div>
+                
+            </section>
+            <section>
+                <button type="button" class="nes-btn is-primary" onclick="document.getElementById('dialog-default').showModal();">
+                    Comprar
+                </button>
+                <dialog class="nes-dialog" id="dialog-default">
+                    <form method="dialog">
+                        <p>Muchas gracias por su compra</p>
+                        <menu class="dialog-menu">
+                            <button class="nes-btn">Cancelar</button>
+                            <button class="nes-btn is-primary" id="finishProcess">Confirmar</button>
+                        </menu>
+                    </form>
+                </dialog>
+            </section>
+        </div>
+    </div>
     
-    <script src="./js/searchBooks.js"></script>
+    <script src="./js/main.js"></script>
 </body>
 </html>
