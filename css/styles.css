@@ -1,6 +1,6 @@
 body {
     padding: 2rem;
-    background-color: #eee;
+    background-color: #CCC;
     font-family: 'Roboto Mono', monospace;
 }
 
@@ -32,4 +32,8 @@ body {
 
 .carSection {
     width: 35%;
+}
+
+.container-car {
+    margin-bottom: 2%;
 }

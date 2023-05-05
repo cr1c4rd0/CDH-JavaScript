@@ -29,7 +29,7 @@ let books = [
     price: 82.8,
   },
 ];
-let elementsCar = [];
+let elementsCar = JSON.parse(localStorage.getItem("elementsCar")) || [];
 
 // Obtener elementos del DOM
 let carButton = document.getElementById("carButton");
@@ -44,13 +44,7 @@ finishProcess.addEventListener("click", buyProcess);
 
 // Render
 renderBooks(books);
-
-
-if (localStorage.getItem("elementsCar")) {
-  elementsCar = JSON.parse(localStorage.getItem("elementsCar"));
-  shopCar(elementsCar);
-};
-
+shopCar(elementsCar);
 
 // Función para el render de los libros
 function renderBooks (books) {
@@ -64,7 +58,7 @@ function renderBooks (books) {
                 <div class='nes-btn book'>${books.title}</div>
                 <div class='nes-btn book'>${books.author}</div>
                 <div class='nes-btn book'>Publisher: ${books.publisher}</div>
-                <div class='nes-btn is-success'>Precio: $${books.price}</div>
+                <div class='nes-btn is-success book'>Precio: $${books.price}</div>
             </div>`;
             listBooks.appendChild(containerBooks);
             let itemCar = document.getElementById(books.id);
