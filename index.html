@@ -21,17 +21,32 @@
     </div>
     <br>
     
-    <h3 class="title ">Libros Disponibles:</h3>
+    <h3 class="title ">Ebooks Disponibles:</h3>
     <br>
     <div class="lista-libros" id="listBooks"></div>
     <br>
-    <h3 class="title">Carrito de compras (<span id="amountCar"></span>):</h3>
-    <br>
+    <h3 class="title">Carrito de compras</h3>
+    <section>
+        <button type="button" class="nes-btn is-primary" onclick="document.getElementById('dialog-default').showModal();">
+            Comprar
+        </button>
+        <dialog class="nes-dialog" id="dialog-default">
+            <form method="dialog">
+                <p>Muchas gracias por su compra</p>
+                <menu class="dialog-menu">
+                    <button class="nes-btn">Cancelar</button>
+                    <button class="nes-btn is-primary" id="finishProcess">Confirmar</button>
+                </menu>
+            </form>
+        </dialog>
+    </section>
+    <br><br>
     <section>
         <div class="lists">
             <ul class="nes-list is-circle" id="itemsCarShop"></ul>
         </div>
     </section>
+    
     <script src="./js/searchBooks.js"></script>
 </body>
 </html>

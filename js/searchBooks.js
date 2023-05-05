@@ -1,4 +1,4 @@
-// Lista de libros iniciales disponible
+// variables globales
 let books = [
     {
         id: 1,
@@ -30,19 +30,27 @@ let books = [
     }
 ];
 let elementsCar = [];
-let valueAmount = 0;
 
 // Obtener elementos del DOM
 let carButton = document.getElementById("carButton");
 let searchField = document.getElementById("name_field");
 let itemsCarShop = document.getElementById("itemsCarShop");
 let amountCar = document.getElementById("amountCar");
+let finishProcess = document.getElementById("finishProcess");
 
 // Eventos
 searchField.addEventListener("input", searchResults);
+finishProcess.addEventListener("click", buyProcess);
 
 // Render
 renderBooks(books);
+
+
+if (localStorage.getItem("elementsCar")) {
+  elementsCar = JSON.parse(localStorage.getItem("elementsCar"));
+  shopCar(elementsCar);
+};
+
 
 // Función para el render de los libros
 function renderBooks (books) {
@@ -66,10 +74,9 @@ function renderBooks (books) {
 
 // Funcion para agregar un item al carrito 
 function shopCar (e) {
-    console.log(e.target.id);
     let itemSearch = books.find(book => book.id === Number(e.target.id));
     elementsCar.push(itemSearch);
-    valueAmount++;
+    localStorage.setItem("elementsCar", JSON.stringify(elementsCar));
     renderCar(elementsCar);
 };
 
@@ -79,12 +86,17 @@ function renderCar (itemsCar) {
     itemsCar.forEach(books => {
         itemsCarShop.innerHTML += `<li>${books.title} <strong>Precio: </strong>$ ${books.price}</li>`;
     });
-    amountCar.innerHTML = "";
-    amountCar.innerHTML += valueAmount;
 };
 
 // Funcion para la busqueda y resultado de libros
 function searchResults(e) {
     let booksFilter = books.filter(book => book.title.includes((searchField.value).toLowerCase()));
     renderBooks(booksFilter);
+};
+
+// Función para finalizar la compra
+function buyProcess () {
+    localStorage.removeItem("elementsCar");
+    elementsCar = [];
+    renderCar(elementsCar);
 };
