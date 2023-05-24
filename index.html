@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,32 +13,48 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="general-menu">
-        <div class="nes-container is-dark with-title grupo menu">
-            <p class="title">Acciones</p>
-            <button type="button" class="nes-btn is-primary" onclick="searchBooks()">Buscar un libro</button>
-            <button type="button" class="nes-btn is-primary" onclick="newBook()">Agregar nuevo libro</button>
-            <button type="button" class="nes-btn is-warning carrito-button" onclick="document.getElementById('dialog-default').showModal();">
-                Carrito (0)
-            </button>
+    <div class="nes-container is-dark is-rounded">
+        <div class="nes-field">
+            <label for="name_field">Buscador:</label>
+            <input type="text" id="name_field" class="nes-input" placeholder="Escriba el nombre del libro a buscar">
         </div>
     </div>
-    <section>
-        <dialog class="nes-dialog" id="dialog-default">
-            <form method="dialog">
-                <p class="title">Dialog</p>
-                <p>Alert: this is a dialog.</p>
-                <menu class="dialog-menu">
-                    <button class="nes-btn">Cancel</button>
-                    <button class="nes-btn is-primary">Confirm</button>
-                </menu>
-            </form>
-        </dialog>
-    </section>
-    <div class="lista-libros" id="listBooks">
-        <h3 class="title ">Libros Disponibles</h3>
-        <br>
+    <br>
+    
+    <div class="container">
+        <div class="bookSection">
+            <h3 class="title ">Ebooks Disponibles:</h3>
+            <br>
+            <div class="lista-libros" id="listBooks"></div>
+            <br>
+        </div>
+        <div class="carSection">
+            <section class="container-car">
+                <div class="nes-container is-dark with-title">
+                    <p class="title">Lista de compras</p>
+                    <p>Agregue Ebooks desde el boton agregar</p>
+                    <div class="lists">
+                        <ul class="nes-list is-circle" id="itemsCarShop"></ul>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <button type="button" class="nes-btn is-primary" onclick="document.getElementById('dialog-default').showModal();">
+                    Comprar
+                </button>
+                <dialog class="nes-dialog" id="dialog-default">
+                    <form method="dialog">
+                        <p>Muchas gracias por su compra</p>
+                        <menu class="dialog-menu">
+                            <button class="nes-btn">Cancelar</button>
+                            <button class="nes-btn is-primary" id="finishProcess">Confirmar</button>
+                        </menu>
+                    </form>
+                </dialog>
+            </section>
+        </div>
     </div>
-    <script src="./js/searchBooks.js"></script>
+    
+    <script src="./js/main.js"></script>
 </body>
 </html>

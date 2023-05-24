@@ -1,21 +1,7 @@
 body {
     padding: 2rem;
-    background-color: #eee;
+    background-color: #CCC;
     font-family: 'Roboto Mono', monospace;
-}
-
-.general-menu {
-    width: 50%;
-    position: fixed;
-    z-index: 1;
-}
-
-.carrito-button {
-    float: right;
-}
-
-.lista-libros {
-    margin-top: 9rem;
 }
 
 .book {
@@ -27,11 +13,27 @@ body {
     margin-right: 1%;
 }
 
-.grupo {
-    margin-bottom: 3rem !important;
-}
-
 .dialog-default {
     overflow-y: hidden !important; 
 }
 
+#carButton {
+    margin-bottom: 2rem;
+}
+
+.container {
+    display: flex;
+}
+
+.bookSection {
+    width: 65%;
+    margin-right: 2rem;
+}
+
+.carSection {
+    width: 35%;
+}
+
+.container-car {
+    margin-bottom: 2%;
+}
